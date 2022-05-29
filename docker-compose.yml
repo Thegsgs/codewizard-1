@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  jenkins:
+    build:
+      context: .
+    environment:
+      CASC_JENKINS_CONFIG: /usr/share/jenkins/ref/casc_configs/jenkins.yml
+      JAVA_OPTS: -Djenkins.install.runSetupWizard=false
+    ports:
+      - 9080:8080
+    volumes:
+      - ./jenkins.yml:/usr/share/jenkins/ref/casc_configs/jenkins.yml
